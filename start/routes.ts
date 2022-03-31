@@ -18,10 +18,10 @@
 |
 */
 
-import Route from '@ioc:Adonis/Core/Route'
+import Route from '@ioc:Adonis/Core/Route' 
 
 Route.post('token', 'UsuariosController.Token')
-Route.get('logout', 'UsuariosController.CerrarSesion')
+Route.get('logout', 'UsuariosController.logout')
 
 Route.post('register','UsuariosController.register')
 Route.post('login','UsuariosController.login')

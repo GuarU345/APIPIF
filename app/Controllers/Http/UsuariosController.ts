@@ -38,7 +38,7 @@ export default class UsuariosController {
     }
   }
 
-  public async CerrarSesion({ auth }){
+  public async logout({ auth }){
     await auth.use('api').revoke()
     return {
         revoked: true
