@@ -37,4 +37,11 @@ export default class UsuariosController {
       return response.unauthorized({error:"No está validado"})
     }
   }
+
+  public async CerrarSesion({ auth }){
+    await auth.use('api').revoke()
+    return {
+        revoked: true
+    }
+}
 }

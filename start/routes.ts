@@ -20,6 +20,8 @@
 
 import Route from '@ioc:Adonis/Core/Route'
 
-Route.post('token', 'UsuarioController.token')
+Route.post('token', 'UsuariosController.Token')
+Route.get('logout', 'UsuariosController.CerrarSesion')
+
 Route.post('register','UsuariosController.register')
 Route.post('login','UsuariosController.login')
