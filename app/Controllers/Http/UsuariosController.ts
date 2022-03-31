@@ -4,10 +4,12 @@ import Usuario from "App/Models/Usuario"
 
 export default class UsuariosController {
   public async register({request,response}){
+    const username=request.input(['username'])
     const email=request.input(['email'])
     const pass=request.input(['password'])
 
     const crear=new Usuario()
+    crear.username=username
     crear.email=email
     crear.password=pass
     crear.save()
