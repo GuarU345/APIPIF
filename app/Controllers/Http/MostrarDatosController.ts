@@ -15,11 +15,11 @@ export default class MostrarDatosController {
     
         const temperaturaSchema=new Schema<Intemperatura>({
           _id: {type: Number, require: true},
-           temperatura: {String},
-           humedad: {String},
+           temperatura: {type:String},
+           humedad: {type:String},
         });
     
-        const temperatura=connection.model<Intemperatura>('temperatura',temperaturaSchema);
+        const temperatura=connection.model<Intemperatura>('temperaturas',temperaturaSchema);
         const buscar= temperatura.find({_id:request.params().id}).sort({$natural:1});
         
         return buscar
