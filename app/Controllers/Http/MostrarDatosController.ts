@@ -7,19 +7,19 @@ export default class MostrarDatosController {
           const connection= mongoose.createConnection('mongodb+srv://admin:12345@sandbox.qlfli.mongodb.net/Sensores?retryWrites=true&w=majority')
         const {Schema}=mongoose
 
-        interface Incomentario {
+        interface Intemperatura {
           _id: number
           temperatura: string
           humedad: string
         }
     
-        const temperaturaSchema=new Schema<Incomentario>({
+        const temperaturaSchema=new Schema<Intemperatura>({
           _id: {type: Number, require: true},
            temperatura: {String},
            humedad: {String},
         });
     
-        const comentario=connection.model<Incomentario>('temperatura',temperaturaSchema);
+        const comentario=connection.model<Intemperatura>('temperatura',temperaturaSchema);
         const buscar= comentario.find({_id:request.params().id}).sort({$natural:1});
         
         return buscar
