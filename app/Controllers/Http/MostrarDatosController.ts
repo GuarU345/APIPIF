@@ -19,8 +19,8 @@ export default class MostrarDatosController {
            humedad: {String},
         });
     
-        const comentario=connection.model<Intemperatura>('temperatura',temperaturaSchema);
-        const buscar= comentario.find({_id:request.params().id}).sort({$natural:1});
+        const temperatura=connection.model<Intemperatura>('temperatura',temperaturaSchema);
+        const buscar= temperatura.find({_id:request.params().id}).sort({$natural:1});
         
         return buscar
         }catch(error){
