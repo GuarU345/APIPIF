@@ -1,19 +1,16 @@
 // import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 
 import Usuario from "App/Models/Usuario"
+import RegisterValidator from "App/Validators/RegisterValidator"
 
 export default class UsuariosController {
   
   public async register({request,response}){
-    const username=request.input(['username'])
-    const email=request.input(['email'])
-    const pass=request.input(['password'])
 
-    const crear=new Usuario()
-    crear.username=username
-    crear.email=email
-    crear.password=pass
-    crear.save()
+    const data = await request.validate(RegisterValidator)
+
+    const crear = await Usuario.create(data)
+
     return response.json({crear})
   }
 
@@ -34,7 +31,7 @@ export default class UsuariosController {
       return await auth.use('api').authenticate()
     }
     catch(e){
-      return response.unauthorized({error:"No está validado"})
+      return response.unauthorized({error:"Token no es validado"})
     }
   }
 
