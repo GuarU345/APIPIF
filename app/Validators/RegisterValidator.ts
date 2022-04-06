@@ -30,7 +30,6 @@ export default class RegisterValidator extends MensajeRegisterValidator{
     username: schema.string({ trim: true}, [
       rules.maxLength(50),
       rules.minLength(5),
-      rules.unique({ table: 'usuarios', column: 'username' }),
       rules.regex(/^[a-zA-Z0-9-_]+$/),
     ]),
     email: schema.string({ trim: true }, [rules.unique({ table: 'usuarios', column: 'email' })]),
