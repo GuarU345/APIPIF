@@ -22,7 +22,7 @@ export default class UsuariosController {
       const token = await auth.use('api').attempt(email, pass)
       return token
     } catch {
-      return response.badRequest('Invalid credentials')
+      return response.badRequest('La contraseña o el correo son incorrectos')
     }
   }
 
