@@ -18,16 +18,17 @@
 |
 */
 
-import Route from '@ioc:Adonis/Core/Route' 
+import Route from '@ioc:Adonis/Core/Route'
 
 Route.group(() =>{
     Route.post('token', 'UsuariosController.Token')
     Route.get('logout', 'UsuariosController.logout')
-    Route.get('mostrarTemyHum', 'DatosTemyHumsController.mostrarTemyHum')
     Route.get('DatosTemyHum/:id', 'DatosTemyHumsController.DatosTemyHum')
     Route.get('mostrarGas', 'DatosGasesController.mostrarGas')
+    Route.get('mostrarTemyHum', 'DatosTemyHumsController.mostrarTemyHum')
+    Route.get('mostrarMovimiento','DatosMovimentosController.mostrarMovimiento')
     Route.get('DatosGas/:id', 'DatosGasesController.DatosGas')
-    Route.get('mostrarMovimiento', 'DatosMovimentosController.mostrarMovimiento')
+
 
 }).middleware(['auth:api'])
 
