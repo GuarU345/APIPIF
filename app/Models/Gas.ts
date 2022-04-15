@@ -7,5 +7,5 @@ export default class GasModelo{
     },{
       versionKey:false
     });
-    static GasModelo:any=model('gases',this.gaschema);
+    static GasModelo:any=model('gas',this.gaschema);
 }
