@@ -13,9 +13,11 @@ export default class DatosMovimentosController {
         await mongoose.connect('mongodb+srv://admin:12345@sandbox.qlfli.mongodb.net/Sensores?retryWrites=true&w=majority')
 
         const movimiento=request.input('movimiento')
+        const fecha= new Date()
     
         const crear = new MovimientoModelo.MovimientoModelo ({
-            movimiento: movimiento
+            movimiento: movimiento,
+            fecha :fecha
         })
     
         await crear.save()

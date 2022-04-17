@@ -4,7 +4,8 @@ export default class TempHumModelo{
 
   static temphumschema=new Schema({
     temperatura:String,
-    humedad:String
+    humedad:String,
+    fecha:Date
   },{
     versionKey:false
   });

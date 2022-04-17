@@ -23,13 +23,14 @@ import Route from '@ioc:Adonis/Core/Route'
 Route.group(() =>{
     Route.post('token', 'UsuariosController.Token')
     Route.get('logout', 'UsuariosController.logout')
-    Route.get('mostrarTemyHum', 'DatosTemyHumsController.mostrarTemyHum')
-    Route.get('DatosTemyHum/:id', 'DatosTemyHumsController.DatosTemyHum')
     Route.get('mostrarMovimiento','DatosMovimentosController.mostrarMovimiento')
-    Route.get('DatosGas', 'DatosGasesController.DatosGas')
-    Route.post('insertarTempHum', 'DatosTemyHumsController.insertarTempHum')
-    Route.post('insertarGas', 'DatosGasesController.insertarGas')
     Route.post('insertarMovi', 'DatosMovimentosController.insertarMovi')
+    Route.get('DatosTemyHum', 'DatosTemyHumsController.DatosTemyHum')
+    Route.get('DatosTemyHumGrafica', 'DatosTemyHumsController.DatosTemyHumGrafica')
+    Route.post('insertarTempHum', 'DatosTemyHumsController.insertarTempHum')
+    Route.get('DatosGas', 'DatosGasesController.DatosGas')
+    Route.get('DatosGasGrafica', 'DatosGasesController.DatosGasGrafica')
+    Route.post('insertarGas', 'DatosGasesController.insertarGas')
 
 }).middleware(['auth:api'])
 

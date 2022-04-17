@@ -3,7 +3,8 @@ import{Schema,model}from 'mongoose'
 export default class GasModelo{
 
     static gaschema=new Schema({
-      gas:String
+      gas:String,
+      fecha:Date
     },{
       versionKey:false
     });

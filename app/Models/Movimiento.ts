@@ -3,7 +3,8 @@ import{Schema,model}from 'mongoose'
 export default class MovimientoModelo{
 
   static movimientoschema=new Schema({
-    movimiento:String
+    movimiento:String,
+    fecha:Date
   },{
     versionKey:false
   });
