@@ -8,4 +8,17 @@ export default class DatosMovimentosController {
         const buscar=await MovimientoModelo.MovimientoModelo.find().sort({$natural:1});
         return buscar
     }
+
+    public async insertarMovi({request,response}){
+        await mongoose.connect('mongodb+srv://admin:12345@sandbox.qlfli.mongodb.net/Sensores?retryWrites=true&w=majority')
+
+        const movimiento=request.input('movimiento')
+    
+        const crear = new MovimientoModelo.MovimientoModelo ({
+            movimiento: movimiento
+        })
+    
+        await crear.save()
+        return response.json(crear)
+  }
 }

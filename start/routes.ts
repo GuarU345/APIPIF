@@ -27,7 +27,9 @@ Route.group(() =>{
     Route.get('DatosTemyHum/:id', 'DatosTemyHumsController.DatosTemyHum')
     Route.get('mostrarMovimiento','DatosMovimentosController.mostrarMovimiento')
     Route.get('DatosGas', 'DatosGasesController.DatosGas')
-    Route.post('insertar', 'DatosGasesController.insertar')
+    Route.post('insertarTempHum', 'DatosTemyHumsController.insertarTempHum')
+    Route.post('insertarGas', 'DatosGasesController.insertarGas')
+    Route.post('insertarMovi', 'DatosMovimentosController.insertarMovi')
 
 }).middleware(['auth:api'])
 

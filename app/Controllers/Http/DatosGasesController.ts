@@ -10,7 +10,7 @@ export default class DatosGasesController {
         return buscar
       }
     
-      public async insertar({request,response}){
+      public async insertarGas({request,response}){
         await mongoose.connect('mongodb+srv://admin:12345@sandbox.qlfli.mongodb.net/Sensores?retryWrites=true&w=majority')
 
          const gas=request.input('gas')
