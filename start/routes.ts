@@ -31,6 +31,8 @@ Route.group(() =>{
     Route.get('DatosGas', 'DatosGasesController.DatosGas')
     Route.get('DatosGasGrafica', 'DatosGasesController.DatosGasGrafica')
     Route.post('insertarGas', 'DatosGasesController.insertarGas')
+    Route.get('DatosLed', 'DatosLedsController.DatosLed')
+    Route.post('InsertarLed', 'DatosLedsController.InsertarLed')
 
 }).middleware(['auth:api'])
 

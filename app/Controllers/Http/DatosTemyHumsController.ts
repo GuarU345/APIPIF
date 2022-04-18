@@ -6,13 +6,13 @@ export default class DatosTemyHumsController {
 
       public async DatosTemyHumGrafica(){
             await mongoose.connect('mongodb+srv://admin:12345@sandbox.qlfli.mongodb.net/Sensores?retryWrites=true&w=majority')
-            const buscar=await TempHumModelo.TempHumModelo.find({},{"temperatura":1,"humedad":1,"_id":0}).sort({$natural:-1});
+            const buscar=await TempHumModelo.TempHumModelo.find({},{"temperatura":1,"humedad":1,"_id":0}).sort({$natural:-1}).limit(10);
             return buscar
       }
 
       public async DatosTemyHum(){
             await mongoose.connect('mongodb+srv://admin:12345@sandbox.qlfli.mongodb.net/Sensores?retryWrites=true&w=majority')
-            const buscar=await TempHumModelo.TempHumModelo.find({},{"temperatura":1,"humedad":1,"fecha":1,"_id":0}).sort({$natural:1});
+            const buscar=await TempHumModelo.TempHumModelo.find({},{"temperatura":1,"humedad":1,"fecha":1,"_id":0}).sort({$natural:-1}).limit(10);
             return buscar
       }
 
