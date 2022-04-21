@@ -9,6 +9,12 @@ export default class DatosMovimentosController {
         return buscar
     }
 
+    public async UltimoDatoMovimiento(){
+        await mongoose.connect('mongodb+srv://admin:12345@sandbox.qlfli.mongodb.net/Sensores?retryWrites=true&w=majority')
+        const buscar=await MovimientoModelo.MovimientoModelo.find().sort({$natural:-1}).limit(1);
+        return buscar
+    }
+
     public async insertarMovi({request,response}){
         await mongoose.connect('mongodb+srv://admin:12345@sandbox.qlfli.mongodb.net/Sensores?retryWrites=true&w=majority')
 
