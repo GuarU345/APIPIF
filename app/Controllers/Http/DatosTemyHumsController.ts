@@ -24,15 +24,30 @@ export default class DatosTemyHumsController {
 
       public async ValorAltoTemyHum(){
             await mongoose.connect('mongodb+srv://admin:12345@sandbox.qlfli.mongodb.net/Sensores?retryWrites=true&w=majority')
-            const buscar=await TempHumModelo.TempHumModelo.find({'temperatura':{$gte:25},'humedad':{$gte:20}}).sort({$natural:-1}).limit(1);
+            const buscar=await TempHumModelo.TempHumModelo.find(null, {"temperatura": 1, "humedad": 1, "fecha": 1}).sort({temperatura: -1, humedad: -1}).limit(1);
             return buscar
       }
 
       public async ValorBajoTemyHum(){
             await mongoose.connect('mongodb+srv://admin:12345@sandbox.qlfli.mongodb.net/Sensores?retryWrites=true&w=majority')
-            const buscar=await TempHumModelo.TempHumModelo.find({'temperatura':{$lte:20},'humedad':{$lte:15}}).sort({$natural:-1}).limit(1);
+            const buscar=await TempHumModelo.TempHumModelo.find(null, {"temperatura": 1, "humedad": 1, "fecha": 1}).sort({temperatura: 1, humedad: 1}).limit(1);
             return buscar
-      }     
+      }    
+      
+      public async filtrarTemyHum({request}){
+            await mongoose.connect('mongodb+srv://admin:12345@sandbox.qlfli.mongodb.net/Sensores?retryWrites=true&w=majority')
+            const fecha=request.input('fecha')
+            const buscar=await TempHumModelo.TempHumModelo.find({
+                  "$expr": {
+                    "$and": [
+                      { $eq: [{ $year: "$fecha" }, { $year: new Date(fecha) }]},
+                      { $eq: [{ $month: "$fecha" }, { $month: new Date(fecha) }]},
+                      { $eq: [{ $dayOfMonth: "$fecha" }, { $dayOfMonth: new Date(fecha) }]}
+                    ]
+                  }
+                });
+            return buscar     
+      }
 
       public async insertarTempHum({request,response}){
             await mongoose.connect('mongodb+srv://admin:12345@sandbox.qlfli.mongodb.net/Sensores?retryWrites=true&w=majority')
